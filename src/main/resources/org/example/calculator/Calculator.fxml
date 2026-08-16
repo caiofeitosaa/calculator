@@ -10,110 +10,109 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Button?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="282.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="282.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.calculator.CalculatorController">
    <children>
-      <Button layoutX="208.0" layoutY="149.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" style="-fx-background-color: orange;" text="÷">
+      <Button fx:id="divide" layoutX="208.0" layoutY="149.0" mnemonicParsing="false" onAction="#eventOnOperationButtons" prefHeight="33.0" prefWidth="50.0" style="-fx-background-color: orange;" text="÷">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="145.0" layoutY="149.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="\%">
+      <Button fx:id="percentage" layoutX="145.0" layoutY="149.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="\%">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="84.0" layoutY="149.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="AC">
+      <Button fx:id="clearButton" layoutX="84.0" layoutY="149.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="AC">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="24.0" layoutY="149.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="50.0" text="Del">
+      <Button fx:id="del" layoutX="24.0" layoutY="149.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="50.0" text="Del">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="24.0" layoutY="195.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="7">
+      <Button fx:id="seven" layoutX="24.0" layoutY="195.0" mnemonicParsing="false" onAction="#eventOnNumberButtons" prefHeight="33.0" prefWidth="50.0" text="7">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="84.0" layoutY="195.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="8">
+      <Button fx:id="eight" layoutX="84.0" layoutY="195.0" mnemonicParsing="false" onAction="#eventOnNumberButtons" prefHeight="33.0" prefWidth="50.0" text="8">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="145.0" layoutY="195.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="9">
+      <Button fx:id="nine" layoutX="145.0" layoutY="195.0" mnemonicParsing="false" onAction="#eventOnNumberButtons" prefHeight="33.0" prefWidth="50.0" text="9">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="208.0" layoutY="195.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" style="-fx-background-color: orange;" text="x">
+      <Button fx:id="multiply" layoutX="208.0" layoutY="195.0" mnemonicParsing="false" onAction="#eventOnOperationButtons" prefHeight="33.0" prefWidth="50.0" style="-fx-background-color: orange;" text="x">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="24.0" layoutY="242.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="4">
+      <Button fx:id="four" layoutX="24.0" layoutY="242.0" mnemonicParsing="false" onAction="#eventOnNumberButtons" prefHeight="33.0" prefWidth="50.0" text="4">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="84.0" layoutY="242.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="5">
+      <Button fx:id="five" layoutX="84.0" layoutY="242.0" mnemonicParsing="false" onAction="#eventOnNumberButtons" prefHeight="33.0" prefWidth="50.0" text="5">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="145.0" layoutY="242.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="6">
+      <Button fx:id="six" layoutX="145.0" layoutY="242.0" mnemonicParsing="false" onAction="#eventOnNumberButtons" prefHeight="33.0" prefWidth="50.0" text="6">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="208.0" layoutY="242.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" style="-fx-background-color: orange;" text="-">
+      <Button fx:id="minus" layoutX="208.0" layoutY="242.0" mnemonicParsing="false" onAction="#eventOnOperationButtons" prefHeight="33.0" prefWidth="50.0" style="-fx-background-color: orange;" text="-">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="24.0" layoutY="290.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="1">
+      <Button fx:id="one" layoutX="24.0" layoutY="290.0" mnemonicParsing="false" onAction="#eventOnNumberButtons" prefHeight="33.0" prefWidth="50.0" text="1">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="84.0" layoutY="290.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="2">
+      <Button fx:id="two" layoutX="84.0" layoutY="290.0" mnemonicParsing="false" onAction="#eventOnNumberButtons" prefHeight="33.0" prefWidth="50.0" text="2">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="145.0" layoutY="290.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="3">
+      <Button fx:id="three" layoutX="145.0" layoutY="290.0" mnemonicParsing="false" onAction="#eventOnNumberButtons" prefHeight="33.0" prefWidth="50.0" text="3">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="208.0" layoutY="290.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" style="-fx-background-color: orange;" text="+">
+      <Button fx:id="plus" layoutX="208.0" layoutY="290.0" mnemonicParsing="false" onAction="#eventOnOperationButtons" prefHeight="33.0" prefWidth="50.0" style="-fx-background-color: orange;" text="+">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="24.0" layoutY="337.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="^">
+      <Button fx:id="raised" layoutX="24.0" layoutY="337.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="^">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="84.0" layoutY="337.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="0">
+      <Button fx:id="zero" layoutX="84.0" layoutY="337.0" mnemonicParsing="false" onAction="#eventOnNumberButtons" prefHeight="33.0" prefWidth="50.0" text="0">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="145.0" layoutY="337.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text=",">
+      <Button fx:id="dot" layoutX="145.0" layoutY="337.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text=",">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="208.0" layoutY="337.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" style="-fx-background-color: orange;" text="=">
+      <Button fx:id="equal" layoutX="208.0" layoutY="337.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" style="-fx-background-color: orange;" text="=">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Label layoutX="221.0" layoutY="74.0" text="0" textFill="WHITE">
+      <Label fx:id="result" layoutX="221.0" layoutY="74.0" text="0" textFill="WHITE">
          <font>
             <Font size="45.0" />
          </font>
