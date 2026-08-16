@@ -22,12 +22,12 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="clearButton" layoutX="84.0" layoutY="149.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="AC">
+      <Button fx:id="clearButton" layoutX="84.0" layoutY="149.0" mnemonicParsing="false" onAction="#eventOnACButton" prefHeight="33.0" prefWidth="50.0" text="AC">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="del" layoutX="24.0" layoutY="149.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="50.0" text="Del">
+      <Button fx:id="del" layoutX="24.0" layoutY="149.0" mnemonicParsing="false" onAction="#eventOnDelButton" prefHeight="39.0" prefWidth="50.0" text="Del">
          <font>
             <Font size="16.0" />
          </font>
@@ -107,12 +107,12 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="equal" layoutX="208.0" layoutY="337.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" style="-fx-background-color: orange;" text="=">
+      <Button fx:id="equal" layoutX="208.0" layoutY="337.0" mnemonicParsing="false" onAction="#eventOnEqualButton" prefHeight="33.0" prefWidth="50.0" style="-fx-background-color: orange;" text="=">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Label fx:id="result" layoutX="221.0" layoutY="74.0" text="0" textFill="WHITE">
+      <Label fx:id="result" alignment="CENTER_RIGHT" layoutX="8.0" layoutY="74.0" prefHeight="66.0" prefWidth="253.0" text="0" textFill="WHITE" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="21.0">
          <font>
             <Font size="45.0" />
          </font>

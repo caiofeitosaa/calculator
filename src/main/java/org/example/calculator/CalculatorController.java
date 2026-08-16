@@ -60,29 +60,78 @@ public class CalculatorController {
     private String firstNumber;
     private String secondNumber;
     private String operation;
+    private String currentNumber = "";
 
+    // OK
     @FXML
     public void eventOnNumberButtons(ActionEvent event) {
         Button sourceButton =  (Button) event.getSource();
-        String number = sourceButton.getText();
-        setResult(number);
-        if (firstNumber == null && secondNumber == null) {
-            firstNumber = number;
-        } else if (secondNumber == null && firstNumber.equals(number)) {
-            secondNumber = number;
-        }
+        currentNumber += sourceButton.getText();
+        setResult(currentNumber);
     }
-    // AJEITAR ESSA FUNÇÃO AQUI
+
+    // OK
     @FXML
     public void eventOnOperationButtons(ActionEvent event) {
         Button sourceButton =  (Button) event.getSource();
-        String operation = sourceButton.getText();
-        if (operation.equals(plus.getText())) {
-            double firstNumberDouble = Double.parseDouble(firstNumber);
-            double secondNumberDouble = Double.parseDouble(secondNumber);
-            double operationResult = firstNumberDouble + secondNumberDouble;
-            String operationResultString = Double.toString(operationResult);
-            setResult(operationResultString);
+        operation = sourceButton.getText();
+        if (operation != null) {
+            firstNumber = currentNumber;
+            currentNumber = "";
         }
     }
+
+    // OK
+    @FXML
+    public void eventOnEqualButton(ActionEvent event) {
+        secondNumber = currentNumber;
+        if (operation.equals("+")){
+            double sum = Double.parseDouble(firstNumber) + Double.parseDouble(secondNumber);
+            String sumString = Double.toString(sum);
+            setResult(sumString);
+            currentNumber = getResult().getText();
+        } else if (operation.equals("-")){
+            double minus = Double.parseDouble(firstNumber) - Double.parseDouble(secondNumber);
+            String minusString = Double.toString(minus);
+            setResult(minusString);
+            currentNumber = getResult().getText();
+        } else if (operation.equals("x")){
+            double multiply = Double.parseDouble(firstNumber) * Double.parseDouble(secondNumber);
+            String multiplyString = Double.toString(multiply);
+            setResult(multiplyString);
+            currentNumber = getResult().getText();
+        } else if (operation.equals("÷")){
+            double divide = Double.parseDouble(firstNumber) / Double.parseDouble(secondNumber);
+            String divideString = Double.toString(divide);
+            setResult(divideString);
+            currentNumber = getResult().getText();
+        }
+        operation = "";
+    }
+    // OK
+    @FXML
+    public void eventOnACButton(ActionEvent event) {
+        setResult("0");
+        currentNumber = "";
+        firstNumber = "";
+        secondNumber = "";
+        operation = "";
+    }
+
+    // OK
+    @FXML
+    public void eventOnDelButton(ActionEvent event) {
+        Button sourceButton =  (Button) event.getSource();
+        String delButton =  sourceButton.getText();
+        if (delButton.equals("Del")){
+            currentNumber = currentNumber.substring(0, currentNumber.length()-1);
+            setResult(currentNumber);
+            if (currentNumber.isEmpty()){
+                setResult("0");
+            }
+        }
+    }
+
+    // TEM QUE FAZER OS BOTÕES ELEVADO, PORCENTAGEM E VIRGULA
+    // TRATAR NÚMEROS NEGATIVOS TAMBÉM
 }
