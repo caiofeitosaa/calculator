@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+import java.util.Locale;
+
 public class CalculatorController {
     @FXML
     private Button del;
@@ -97,13 +99,38 @@ public class CalculatorController {
             currentNumber = getResult().getText();
         } else if (operation.equals("x")){
             double multiply = Double.parseDouble(firstNumber) * Double.parseDouble(secondNumber);
-            String multiplyString = Double.toString(multiply);
+            String multiplyString = String.format(Locale.US,"%.1f", multiply);
             setResult(multiplyString);
             currentNumber = getResult().getText();
         } else if (operation.equals("÷")){
             double divide = Double.parseDouble(firstNumber) / Double.parseDouble(secondNumber);
-            String divideString = Double.toString(divide);
-            setResult(divideString);
+            String divideStringUpdated = String.format(Locale.US,"%.1f", divide);
+            setResult(divideStringUpdated);
+            currentNumber = getResult().getText();
+
+            // OBSERVAR ESSA PORCENTAGEM PQ ELA QUEBRA O PROGRAMA UMA HORA
+        } else if (operation.equals("%")){
+            double percentage = Double.parseDouble(currentNumber);
+            double percentageResult = percentage / 100;
+            String percentageString = String.format(Locale.US,"%.2f", percentageResult);
+            if (percentage <= 1 || percentageResult <= 1) {
+                percentageString = String.format(Locale.US,"%.3f", percentageResult);
+            }
+            if (percentage <= 0.1 || percentageResult <= 0.1) {
+                percentageString = String.format(Locale.US,"%.4f", percentageResult);
+            }
+            if (percentage <= 0.01 || percentageResult <= 0.01) {
+                percentageString = String.format(Locale.US,"%.5f", percentageResult);
+            }
+            setResult(percentageString);
+            currentNumber = getResult().getText();
+        } else if (operation.equals("^")){
+            double raisedNumber = Double.parseDouble(firstNumber);
+            secondNumber = currentNumber;
+            double raised = Double.parseDouble(secondNumber);
+            double result = Math.pow(raisedNumber, raised);
+            String raisedString = String.format(Locale.US,"%.1f", result);
+            setResult(raisedString);
             currentNumber = getResult().getText();
         }
         operation = "";
@@ -132,6 +159,22 @@ public class CalculatorController {
         }
     }
 
-    // TEM QUE FAZER OS BOTÕES ELEVADO, PORCENTAGEM E VIRGULA
-    // TRATAR NÚMEROS NEGATIVOS TAMBÉM
+    @FXML
+    public void eventOnPercentageButton(ActionEvent event) {
+        String displayNumber = currentNumber +  "%";
+        operation = "%";
+        setResult(displayNumber);
+    }
+
+    @FXML
+    public void eventOnRaisedButton(ActionEvent event) {
+        operation = "^";
+        firstNumber = currentNumber;
+        currentNumber = "";
+    }
+
+    @FXML
+    public void eventOnDotButton(ActionEvent event) {
+        currentNumber = currentNumber + ".";
+    }
 }
