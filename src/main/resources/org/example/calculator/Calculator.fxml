@@ -17,7 +17,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="percentage" layoutX="145.0" layoutY="149.0" mnemonicParsing="false" onAction="#eventOnPercentageButton" prefHeight="33.0" prefWidth="50.0" text="\%">
+      <Button fx:id="percentage" layoutX="145.0" layoutY="149.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="\%">
          <font>
             <Font size="18.0" />
          </font>
@@ -27,7 +27,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="del" layoutX="24.0" layoutY="149.0" mnemonicParsing="false" onAction="#eventOnDelButton" prefHeight="39.0" prefWidth="50.0" text="Del">
+      <Button fx:id="del" layoutX="24.0" layoutY="149.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="50.0" text="Del">
          <font>
             <Font size="16.0" />
          </font>
@@ -92,7 +92,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="raised" layoutX="24.0" layoutY="337.0" mnemonicParsing="false" onAction="#eventOnRaisedButton" prefHeight="33.0" prefWidth="50.0" text="^">
+      <Button fx:id="parentheses" layoutX="24.0" layoutY="337.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text="( )">
          <font>
             <Font size="18.0" />
          </font>
@@ -102,17 +102,17 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="dot" layoutX="145.0" layoutY="337.0" mnemonicParsing="false" onAction="#eventOnDotButton" prefHeight="33.0" prefWidth="50.0" text=".">
+      <Button fx:id="dot" layoutX="145.0" layoutY="337.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text=".">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="equal" layoutX="208.0" layoutY="337.0" mnemonicParsing="false" onAction="#eventOnEqualButton" prefHeight="33.0" prefWidth="50.0" style="-fx-background-color: orange;" text="=">
+      <Button fx:id="equal" layoutX="208.0" layoutY="337.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" style="-fx-background-color: orange;" text="=">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Label fx:id="result" alignment="CENTER_RIGHT" layoutX="8.0" layoutY="74.0" prefHeight="66.0" prefWidth="253.0" text="0" textFill="WHITE" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="21.0">
+      <Label fx:id="label" alignment="CENTER_RIGHT" layoutX="23.0" layoutY="74.0" prefHeight="66.0" prefWidth="235.0" text="0" textFill="WHITE" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="24.0">
          <font>
             <Font size="45.0" />
          </font>
