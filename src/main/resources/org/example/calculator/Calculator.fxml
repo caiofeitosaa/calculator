@@ -27,7 +27,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="del" layoutX="24.0" layoutY="149.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="50.0" text="Del">
+      <Button fx:id="del" layoutX="24.0" layoutY="149.0" mnemonicParsing="false" onAction="#eventOnDelButton" prefHeight="39.0" prefWidth="50.0" text="Del">
          <font>
             <Font size="16.0" />
          </font>

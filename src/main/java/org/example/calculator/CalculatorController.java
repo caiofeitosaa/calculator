@@ -57,6 +57,20 @@ public class CalculatorController {
         } // end of first if body
     } // end of operations buttons method
 
+    // WORKING FINE
+    @FXML
+    public void eventOnDelButton () {
+        if (currentLabelContent.length() <= 1) {
+            currentLabelContent = "";
+            setLabel("0");
+        } // end of if body
+
+        else {
+            currentLabelContent = currentLabelContent.substring(0, currentLabelContent.length() - 1);
+            setLabel(currentLabelContent);
+        } // end of else body
+    } // end of del button method
+
     @FXML
     public void eventOnEqualButton () {
 
