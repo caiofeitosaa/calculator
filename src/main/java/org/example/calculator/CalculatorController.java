@@ -50,6 +50,10 @@ public class CalculatorController {
 
             } // end of second if body
 
+            else if (lastChar == '%') {
+                currentLabelContent += currentOperation;
+            } // end of third if body
+
             else {
                 currentLabelContent += currentOperation;
             } // end of else body
@@ -72,13 +76,39 @@ public class CalculatorController {
     } // end of del button method
 
     @FXML
-    public void eventOnEqualButton () {
+    public void eventOnPercentageButton (ActionEvent event) {
+        Button percentageButtonSource = (Button) event.getSource();
+        String percentageButtonContent = percentageButtonSource.getText();
 
         if (!currentLabelContent.isEmpty()) {
-            String expression = currentLabelContent;
-            for (int i = 0; i < expression.length(); i++) {
 
-            }
-        } // end of if body
-    } // end of equal button method
+            char lastChar = currentLabelContent.charAt(currentLabelContent.length() - 1);
+            char secondToLastChar = currentLabelContent.charAt(currentLabelContent.length() - 2);
+
+            if (lastChar == '+' ||
+                lastChar == '-' ||
+                lastChar == 'x' ||
+                lastChar == '÷') {
+
+                if (secondToLastChar == '%') {
+                    setLabel(currentLabelContent);
+                } // end of fourth if body
+
+                else {
+                    currentLabelContent = currentLabelContent.substring(0, currentLabelContent.length() - 1) + percentageButtonContent;
+                    setLabel(currentLabelContent);
+                } // end of second else
+            } // end of second if body
+
+            else if (lastChar == '%') {
+                currentLabelContent = currentLabelContent.substring(0, currentLabelContent.length() - 1) + percentageButtonContent;
+                setLabel(currentLabelContent);
+            } // end of third if body
+
+            else {
+                currentLabelContent += percentageButtonContent;
+                setLabel(currentLabelContent);
+            } // end of else body
+        } // end of first if body
+    } // end of percentage button method
 } // end of class body
