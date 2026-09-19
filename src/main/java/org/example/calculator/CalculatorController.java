@@ -20,8 +20,27 @@ public class CalculatorController {
     @FXML
     public void eventOnNumberButtons (ActionEvent event) {
         Button numberButtonSource =  (Button) event.getSource();
-        currentLabelContent += numberButtonSource.getText();
-        setLabel(currentLabelContent);
+        String numberButtonContent = numberButtonSource.getText();
+
+        if (!currentLabelContent.isEmpty()) {
+
+            char lastChar = currentLabelContent.charAt(currentLabelContent.length()-1);
+
+            if (lastChar == '%') {
+                currentLabelContent += "x" + numberButtonContent;
+                setLabel(currentLabelContent);
+            } // end of second if body
+
+            else {
+                currentLabelContent += numberButtonContent;
+                setLabel(currentLabelContent);
+            } // end of second else body
+        } // end of first if body
+
+        else {
+            currentLabelContent += numberButtonContent;
+            setLabel(currentLabelContent);
+        } // end of first else body
     } // end of number buttons method
 
     // WORKING FINE
@@ -41,10 +60,7 @@ public class CalculatorController {
 
             char lastChar = currentLabelContent.charAt(currentLabelContent.length() - 1); // char method that get/look a specific char in a String
 
-            if (lastChar == '+' ||
-                lastChar == '-' ||
-                lastChar == 'x' ||
-                lastChar == '÷') {
+            if (lastChar == '+' || lastChar == '-' || lastChar == 'x' || lastChar == '÷') {
 
                 currentLabelContent = currentLabelContent.substring(0, currentLabelContent.length() - 1) + currentOperation; // substring get a specific part of a String
 
@@ -83,21 +99,22 @@ public class CalculatorController {
         if (!currentLabelContent.isEmpty()) {
 
             char lastChar = currentLabelContent.charAt(currentLabelContent.length() - 1);
-            char secondToLastChar = currentLabelContent.charAt(currentLabelContent.length() - 2);
 
-            if (lastChar == '+' ||
-                lastChar == '-' ||
-                lastChar == 'x' ||
-                lastChar == '÷') {
+            if (lastChar == '+' || lastChar == '-' || lastChar == 'x' || lastChar == '÷') {
 
-                if (secondToLastChar == '%') {
-                    setLabel(currentLabelContent);
-                } // end of fourth if body
+                if (currentLabelContent.length() >= 2) {
 
-                else {
-                    currentLabelContent = currentLabelContent.substring(0, currentLabelContent.length() - 1) + percentageButtonContent;
-                    setLabel(currentLabelContent);
-                } // end of second else
+                    char secondToLastChar = currentLabelContent.charAt(currentLabelContent.length() - 2);
+
+                    if (secondToLastChar == '%') {
+                        setLabel(currentLabelContent);
+                    } // end of fourth if body
+
+                    else {
+                        currentLabelContent = currentLabelContent.substring(0, currentLabelContent.length() - 1) + percentageButtonContent;
+                        setLabel(currentLabelContent);
+                    } // end of second else body
+                } // end of third if body
             } // end of second if body
 
             else if (lastChar == '%') {
@@ -111,4 +128,36 @@ public class CalculatorController {
             } // end of else body
         } // end of first if body
     } // end of percentage button method
+
+    @FXML
+    public void eventOnDotButton (ActionEvent event) {
+        Button dotButtonSource = (Button) event.getSource();
+        String dotButtonContent = dotButtonSource.getText();
+
+        if (currentLabelContent.isEmpty()) {
+            currentLabelContent = "0.";
+            setLabel(currentLabelContent);
+        } // end of first if body
+
+        else {
+
+            char lastChar = currentLabelContent.charAt(currentLabelContent.length() - 1);
+
+            if (lastChar == '+' || lastChar == '-' || lastChar == 'x' || lastChar == '÷' || lastChar == '%') {
+                setLabel(currentLabelContent);
+            } // end of second if body
+
+            else {
+
+                if (lastChar != '.') {
+                    currentLabelContent += dotButtonContent;
+                    setLabel(currentLabelContent);
+                } // end of third if body
+
+                else {
+                    setLabel(currentLabelContent);
+                } // end of third else body
+            } // end of second else body
+        } // end of else body
+    } // end of del button method
 } // end of class body

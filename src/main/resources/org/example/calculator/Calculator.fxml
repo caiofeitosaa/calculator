@@ -102,7 +102,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="dot" layoutX="145.0" layoutY="337.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" text=".">
+      <Button fx:id="dot" layoutX="145.0" layoutY="337.0" mnemonicParsing="false" onAction="#eventOnDotButton" prefHeight="33.0" prefWidth="50.0" text=".">
          <font>
             <Font size="18.0" />
          </font>
