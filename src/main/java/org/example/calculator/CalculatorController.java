@@ -129,6 +129,7 @@ public class CalculatorController {
         } // end of first if body
     } // end of percentage button method
 
+    // WORKING FINE
     @FXML
     public void eventOnDotButton (ActionEvent event) {
         Button dotButtonSource = (Button) event.getSource();
@@ -148,16 +149,21 @@ public class CalculatorController {
             } // end of second if body
 
             else {
+                boolean hasDot = false;
 
-                if (lastChar != '.') {
+                for (int i = 0; i < currentLabelContent.length(); i++) {
+
+                    if (currentLabelContent.charAt(i) == '.') {
+                        hasDot = true;
+                        break;
+                    } // end of third if body
+                } // end of for body
+
+                if (!hasDot) {
                     currentLabelContent += dotButtonContent;
                     setLabel(currentLabelContent);
-                } // end of third if body
-
-                else {
-                    setLabel(currentLabelContent);
-                } // end of third else body
+                } // end of fourth if body
             } // end of second else body
         } // end of else body
-    } // end of del button method
+    } // end of dot button method
 } // end of class body
