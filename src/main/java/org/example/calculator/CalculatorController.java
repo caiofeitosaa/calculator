@@ -122,6 +122,8 @@ public class CalculatorController {
                 setLabel(currentLabelContent);
             } // end of third if body
 
+            else if (lastChar == '(') setLabel(currentLabelContent);
+
             else {
                 currentLabelContent += percentageButtonContent;
                 setLabel(currentLabelContent);
@@ -166,4 +168,30 @@ public class CalculatorController {
             } // end of second else body
         } // end of else body
     } // end of dot button method
+
+    // WORKING FINE
+    @FXML
+    public void eventOnParenthesisButton () {
+
+        if (currentLabelContent.isEmpty()) {
+            currentLabelContent = "(";
+            setLabel(currentLabelContent);
+            return;
+        } // end of first if body
+
+        int numberOfLeftParenthesis = 0;
+        int numberOfRightParenthesis = 0;
+
+        for (int i = 0; i < currentLabelContent.length(); i++) {
+            char c = currentLabelContent.charAt(i);
+            if (c == '(') numberOfLeftParenthesis++;
+            if (c == ')') numberOfRightParenthesis++;
+        } // end of for body
+
+        if (numberOfLeftParenthesis > numberOfRightParenthesis) currentLabelContent += ")";
+
+        else currentLabelContent += "(";
+
+        setLabel(currentLabelContent);
+    } // end of parenthesis button method
 } // end of class body
