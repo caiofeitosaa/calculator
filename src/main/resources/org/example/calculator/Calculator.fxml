@@ -107,7 +107,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="equal" layoutX="208.0" layoutY="337.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="50.0" style="-fx-background-color: orange;" text="=">
+      <Button fx:id="equal" layoutX="208.0" layoutY="337.0" mnemonicParsing="false" onAction="#eventOnEqualButton" prefHeight="33.0" prefWidth="50.0" style="-fx-background-color: orange;" text="=">
          <font>
             <Font size="18.0" />
          </font>

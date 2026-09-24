@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import net.objecthunter.exp4j.Expression;
+import net.objecthunter.exp4j.ExpressionBuilder;
 
 public class CalculatorController {
 
@@ -194,4 +196,45 @@ public class CalculatorController {
 
         setLabel(currentLabelContent);
     } // end of parenthesis button method
+
+    // WORKING FINE
+    public String formattingResult (double result) {
+        if (result == Math.floor(result) && !Double.isInfinite(result)) return String.valueOf((long) result);
+
+        else {
+            String formattedResult = String.format("%.6f", result);
+
+            formattedResult = formattedResult.replaceAll("0+$", ""); // strip trailing zeros after the decimal point (ex: "5.5000" -> "5.5")
+            formattedResult = formattedResult.replaceAll("\\.$", ""); // remove a leftover trailing dot if all decimals were zeros (ex: "5." -> "5")
+
+            return formattedResult;
+        } // end of else body
+    } // end of formattingResult method
+
+    // WORKING FINE
+    @FXML
+    public void eventOnEqualButton() {
+
+        try {
+            String translatedExpression = currentLabelContent.replace("x", "*").replace("÷", "/").replace("%", "/100"); // translates the expression because exp4j doesn't understand "x" and "÷"
+
+            Expression expression = new ExpressionBuilder(translatedExpression).build();
+            double result = expression.evaluate();
+
+            String resultLabel = formattingResult(result);
+
+            currentLabelContent = resultLabel; // updates the states of the label with the resultLabel
+            setLabel(resultLabel);
+
+        } // end of try body
+
+        catch (Exception e) {
+            setLabel("Error");
+            currentLabelContent = "";
+        } // end of catch body
+    } // end of equal button method
 } // end of class body
+
+// big numbers fall out of the screen
+// big expressions fall out of the screen
+// big decimal numbers (>6) disappear after several divisions => use scientific notation perhaps?
