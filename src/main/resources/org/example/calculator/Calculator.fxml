@@ -112,7 +112,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Label fx:id="label" alignment="CENTER_RIGHT" layoutX="23.0" layoutY="74.0" prefHeight="66.0" prefWidth="235.0" text="0" textFill="WHITE" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="24.0">
+      <Label fx:id="label" alignment="CENTER_RIGHT" layoutX="23.0" layoutY="74.0" prefHeight="66.0" prefWidth="235.0" text="0" textFill="WHITE" textOverrun="CLIP" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="24.0">
          <font>
             <Font size="40.0" />
          </font>

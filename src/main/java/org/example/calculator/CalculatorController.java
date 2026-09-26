@@ -202,7 +202,7 @@ public class CalculatorController {
         if (result == Math.floor(result) && !Double.isInfinite(result)) return String.valueOf((long) result);
 
         else {
-            String formattedResult = String.format("%.6f", result);
+            String formattedResult = String.format("%.8f", result);
 
             formattedResult = formattedResult.replaceAll("0+$", ""); // strip trailing zeros after the decimal point (ex: "5.5000" -> "5.5")
             formattedResult = formattedResult.replaceAll("\\.$", ""); // remove a leftover trailing dot if all decimals were zeros (ex: "5." -> "5")
@@ -213,7 +213,7 @@ public class CalculatorController {
 
     // WORKING FINE
     @FXML
-    public void eventOnEqualButton() {
+    public void eventOnEqualButton () {
 
         try {
             String translatedExpression = currentLabelContent.replace("x", "*").replace("÷", "/").replace("%", "/100"); // translates the expression because exp4j doesn't understand "x" and "÷"
@@ -234,7 +234,3 @@ public class CalculatorController {
         } // end of catch body
     } // end of equal button method
 } // end of class body
-
-// big numbers fall out of the screen
-// big expressions fall out of the screen
-// big decimal numbers (>6) disappear after several divisions => use scientific notation perhaps?
